@@ -10,15 +10,36 @@ class TreeNode {
 class BinarySearchTree {
 
   constructor() {
-    // Your code here
+    this.root = null
   }
 
   insert(val, currentNode=this.root) {
-    // Your code here
+    const bst = new TreeNode(val)
+      if(!this.root) {
+        this.root = bst
+        return
+      }
+    if(val < currentNode.val) {
+      if(!currentNode.left) {
+        currentNode.left = bst;
+      } else {
+        this.insert(val, currentNode.left)
+      }
+    } else {
+        if(!currentNode.right) {
+          currentNode.right = bst
+        } else {
+          this.insert(val, currentNode.right)
+        }
+
+      }
+
+
   }
 
   search(val) {
-    // Your code here
+    const bst = new BinarySearchTree();
+
   }
 
 
