@@ -38,28 +38,56 @@ class BinarySearchTree {
   }
 
   search(val) {
-    const bst = new BinarySearchTree();
+let currentNode = this.root
 
+
+    while(currentNode) {
+     if(currentNode.val === val) {
+        return true
+     }
+     if (val < currentNode.val) {
+      currentNode = currentNode.left
+     } else if(val > currentNode.val) {
+     currentNode = currentNode.right
+     }
+    }
+    return false
   }
 
 
   preOrderTraversal(currentNode = this.root) {
-    // Your code here
+   if(currentNode) {
+    console.log(currentNode.val);
+    this.preOrderTraversal(currentNode.left);
+    this.preOrderTraversal(currentNode.right)
+   }
   }
 
 
   inOrderTraversal(currentNode = this.root) {
-    // Your code here
+   if(currentNode) {
+    this.inOrderTraversal(currentNode.left);
+    console.log(currentNode.val);
+    this.inOrderTraversal(currentNode.right)
+   }
   }
 
 
   postOrderTraversal(currentNode = this.root) {
-    // Your code here
+   if(currentNode) {
+     this.postOrderTraversal(currentNode.left);
+     this.postOrderTraversal(currentNode.right);
+     console.log(currentNode.val)
+   }
   }
 
     // Breadth First Traversal - Iterative
   breadthFirstTraversal() {
-    // your code here
+    let currNode = this.root
+    let queue = []
+    let result = []
+     queue.push(currentNode.val);
+
   }
 
   // Depth First Traversal - Iterative
